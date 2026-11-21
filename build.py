@@ -29,13 +29,13 @@ WHITE  = '#FFFFFF'
 NIGHT  = '#16243F'
 
 REG = {
-    'EUROPE':      {'c': '#2C6FB0', 'l': 'EUROPE'},
-    'MIDDLE EAST': {'c': '#B43A2E', 'l': 'MIDDLE EAST'},
-    'AFRICA':      {'c': '#2F8B5B', 'l': 'AFRICA'},
-    'ASIA':        {'c': '#D2861B', 'l': 'ASIA'},
-    'AMERICAS':    {'c': '#7748A8', 'l': 'AMERICAS'},
-    'OCEANIA':     {'c': '#118A8E', 'l': 'OCEANIA'},
-    'WORLD':       {'c': '#5A6472', 'l': 'WORLD'},
+    'EUROPE':      {'c': '#2C6FB0', 'l': 'EUROPE',      's': 'EUROPE'},
+    'MIDDLE EAST': {'c': '#D2861B', 'l': 'MIDDLE EAST', 's': 'M.EAST'},
+    'AFRICA':      {'c': '#2F8B5B', 'l': 'AFRICA',      's': 'AFRICA'},
+    'ASIA':        {'c': '#B43A2E', 'l': 'ASIA',        's': 'ASIA'},
+    'AMERICAS':    {'c': '#7748A8', 'l': 'AMERICAS',    's': 'AMERICAS'},
+    'OCEANIA':     {'c': '#118A8E', 'l': 'OCEANIA',     's': 'OCEANIA'},
+    'WORLD':       {'c': '#5A6472', 'l': 'WORLD',       's': 'W'},
 }
 ORDER = ['EUROPE', 'MIDDLE EAST', 'AFRICA', 'ASIA', 'AMERICAS', 'OCEANIA', 'WORLD']
 
@@ -106,7 +106,7 @@ STORIES = [
   'Cyclone Akvan comes ashore in eastern India',
   'Akvan crossed the coast near Gopalpur between 07:30 and 08:30 IST with 70-80 km/h winds, gusting 90. Over 300,000 were moved to shelters; no deaths reported.',
   'IMD / The Hindu / PTI',84.9,19.3,'07:30–08:30 IST · 20 NOV'),
- (3,'WORLD','TAIPEI · SEOUL · TOKYO','MARKETS · FRIDAY CLOSE',
+ (3,'ASIA','TAIPEI · SEOUL · TOKYO','MARKETS · FRIDAY CLOSE',
   "AI sell-off sinks Asia's stock markets",
   'Taiex fell 6.2%, Kospi 5.2% and Nikkei 5.1% as Anthropic\'s debut failed to revive AI trades. The region is heading for its worst week since 2020.',
   'Reuters / Al Jazeera',121.5,25.0,"FRI CLOSE · 20 NOV"),
@@ -114,7 +114,7 @@ STORIES = [
   "UK and EU seal a 'reset' deal",
   'Food checks, linked carbon markets and 100,000 youth places a side were agreed in Brussels.',
   'Reuters / EUobserver',4.35,50.85,'BRUSSELS · 20 NOV'),
- (5,'WORLD','ANTALYA, TÜRKIYE','CLIMATE · DAY 12',
+ (5,'EUROPE','ANTALYA, TÜRKIYE','CLIMATE · DAY 12',
   'COP31 reaches its last day with no deal',
   'The draft leaves out fossil fuels; a third text is due Saturday as the 1.5C goal slips.',
   'UN News / Anadolu',30.7,36.9,'ANTALYA · 20 NOV'),
@@ -160,7 +160,7 @@ STORIES = [
   'The Constitutional Court set a date for the case of the suspended chief justice.', 'Korea Herald',127.0,37.6,'20 NOV'),
  (20,'EUROPE','SMOLENSK, RUSSIA','WAR','Drones reported to hit chemical plant',
   'Blast site video showed smoke at a plant; Moscow called the claims disinformation.', 'GLAST',32.0,54.8,'20 NOV'),
- (21,'WORLD','STRAIT OF HORMUZ','ENERGY','46 ships waiting; Brent near $92',
+ (21,'MIDDLE EAST','STRAIT OF HORMUZ','ENERGY','46 ships waiting; Brent near $92',
   'Tanker disruptions kept crude near $92 a barrel even as US inventories rose.', 'Reuters',56.5,26.6,'20 NOV'),
  (22,'AFRICA','DAKAR, SENEGAL','MIGRATION','Migrant boat capsizes; at least 4 dead',
   'A boat carrying migrants overturned off the coast; four bodies were recovered.', 'allAfrica',-17.4,14.7,'20 NOV'),
@@ -174,21 +174,21 @@ STORIES = [
   'Queues for petrol stretched for blocks as the import squeeze deepened.', 'Al Jazeera',34.9,-13.9,'20 NOV'),
  (27,'AMERICAS','NEW YORK, USA','TECHNOLOGY','JPMorgan reports vendor cyberattack',
   'A third-party breach may have exposed customer data at the bank, it said.', 'Reuters',-74.0,40.7,'20 NOV'),
- (28,'WORLD','UNITED NATIONS','RIGHTS','Rohingya camp marks ICJ ruling',
-  'Refugees in Cox\'s Bazar marked the court\'s order on Myanmar with prayers.', 'Al Jazeera',-74.0,40.7,'20 NOV'),
+ (28,'ASIA','COX\'S BAZAR, BANGLADESH','RIGHTS','Rohingya camp marks ICJ ruling',
+  'Refugees in Cox\'s Bazar marked the court\'s order on Myanmar with prayers.', 'Al Jazeera',92.0,21.4,'20 NOV'),
  (29,'AMERICAS','LAS VEGAS','MOTORSPORT','Russell fastest in wet F1 practice',
   'George Russell set the pace in a rain-hit practice ahead of the Las Vegas Grand Prix.', 'Autosport',-115.1,36.2,'20 NOV'),
  (30,'ASIA','SHENZHEN, CHINA','TECHNOLOGY','Gemini can now control a Mac',
   'Google said its assistant can operate a Mac, adding pressure on Apple\'s Siri.', 'Reuters',114.1,22.5,'20 NOV'),
  (31,'OCEANIA','SYDNEY, AUSTRALIA','MARKETS','Australian shares fall 1.8%',
   'The ASX 200 tracked the regional sell-off as miners and tech stocks slid.', 'Reuters',151.2,-33.9,'20 NOV'),
- (32,'WORLD','GLOBAL','CLIMATE','World Children\'s Day marked',
-  'UNICEF marked the day as a report warned of worsening child hunger.', 'UN News',-74.0,40.7,'20 NOV'),
+ (32,'WORLD','WORLD','CHILDREN','World Children\'s Day marked',
+  'UNICEF marked the day as a report warned of worsening child hunger.', 'UN News',-30.0,12.0,'20 NOV'),
  (33,'ASIA','KUALA LUMPUR','MIGRATION','Malaysia to resettle 10,000 Rohingya',
   'Kuala Lumpur said it would take in 10,000 Rohingya refugees from camps in Bangladesh.', 'Reuters / Anadolu',101.7,3.1,'20 NOV'),
  (34,'AMERICAS','WASHINGTON, USA','ECONOMY',"Fed's Cook calls for a rate rise now",
   'A Fed governor argued for a December increase as inflation remained sticky.', 'Reuters',-77.0,38.9,'20 NOV'),
- (35,'ASIA','ANTALYA, TÜRKIYE','CLIMATE','$120bn adaptation gap remains',
+ (35,'EUROPE','ANTALYA, TÜRKIYE','CLIMATE','$120bn adaptation gap remains',
   'Negotiators said the climate finance gap was still the main sticking point.', 'UN News',30.7,36.9,'20 NOV'),
 ]
 BY_NUM = {s[0]: s for s in STORIES}
@@ -485,23 +485,23 @@ def draw_map(d, box):
         ln(d, [pr(-180, lat), pr(180, lat)], '#C6DEEA', 0.6)
     for ring in RINGS:
         pg(d, [pr(c[0], c[1]) for c in ring], LAND, outline=LANDLN, width=0.7)
-    # numbered pins: dot at the real place, label pushed to a free ring, joined by a line
+    # numbered pins: a dot at the real place, its badge kept close, joined by a short line
     entries = []
     for s in STORIES:
         dx, dy = pr(s[7], s[8])
         entries.append([s[0], REG[s[1]]['c'], dx, dy])
-    rad = 6.6
+    rad = 6.8
     placed, out = [], []
     for num, col, dx, dy in entries:
         best = None
-        for ring in (0, 9, 17, 26, 36, 48, 62, 78):
-            steps = max(8, int(ring*2.1))
+        for ring in (0, 8, 15, 23, 32, 42):
+            steps = max(12, int(ring*3))
             for k in range(steps):
-                a = 2*math.pi*k/steps + ring*0.37
+                a = 2*math.pi*k/steps + ring*0.31
                 cx = dx + ring*math.cos(a)
                 cy = dy + ring*math.sin(a)*0.85
                 if x0+9 <= cx <= x1-9 and y0+9 <= cy <= y1-9:
-                    if all((cx-px)**2+(cy-py)**2 > (2*rad+3.5)**2 for px, py in placed):
+                    if all((cx-px)**2+(cy-py)**2 > (2*rad+3)**2 for px, py in placed):
                         best = (cx, cy, ring); break
             if best: break
         if not best: best = (dx, dy, 0)
@@ -509,11 +509,11 @@ def draw_map(d, box):
         placed.append((cx, cy))
         out.append((num, col, dx, dy, cx, cy, ring))
     for num, col, dx, dy, cx, cy, ring in out:
-        if ring > 2:
+        ci(d, dx, dy, 2.1, fill=col, outline=WHITE, width=0.9)
+        if ring > 3:
             ln(d, [(dx, dy), (cx, cy)], '#5B6874', 0.8)
-            ci(d, dx, dy, 1.8, fill=col)
         ci(d, cx, cy, rad, fill=col, outline=WHITE, width=1.2)
-        tc(d, cx, cy+2.8, str(num), F(8.8, True), WHITE)
+        tx(d, cx, cy, str(num), F(8.6, True), WHITE, anchor='mm')
     mark('map', box)
 
 # ================================================================ BUILD
@@ -554,15 +554,18 @@ def build():
     for r in ORDER:
         seg = (W-2*M)*COUNTS[r]/total
         rc(d, (bx, 135, bx+seg, 153), REG[r]['c'])
-        lab = '%s %d' % (REG[r]['l'], COUNTS[r])
-        tc(d, bx+seg/2, 140, lab, F(8.3 if seg > 78 else 7.4, True), WHITE)
+        lab = '%s %d' % (REG[r]['s'], COUNTS[r])
+        fs = 8.4
+        while fs > 5.4 and d.textlength(lab, font=F(fs, True)) > (seg-5)*S:
+            fs -= 0.4
+        tc(d, bx+seg/2, 140, lab, F(fs, True), WHITE)
         bx += seg
     mark('regionbar', (M, 135, W-M, 153))
 
     # ---- three main cards
     gap = 8; cw = (W-2*M-2*gap)/3
     for i, num in enumerate([1, 2, 3]):
-        s = BY_NUM[num]; x0 = M+i*(cw+gap); y0 = 157; ch = 204; ih = 96
+        s = BY_NUM[num]; x0 = M+i*(cw+gap); y0 = 157; ch = 230; ih = 100
         col = REG[s[1]]['c']
         rc(d, (x0, y0, x0+cw, y0+ch), WHITE, outline='#BEB5A2', width=1)
         MAIN_ILLU[num](d, x0+1, y0+1, cw-2, ih)
@@ -575,14 +578,14 @@ def build():
         yy += 2
         bl = tw(d, s[5], F(10.6), cw-13)[:4]
         tlines(d, x0+7, yy, bl, F(10.6), MUTED, lineh=11.8)
-        tx(d, x0+7, y0+ch-10, s[6], F(8.0, True), col)
+        tx(d, x0+7, y0+ch-12, s[6], F(8.0, True), col)
         mark('main%d' % num, (x0, y0, x0+cw, y0+ch))
 
     # ---- eight small cards, enlarged so each holds a real illustration
-    g2 = 6; sw = (W-2*M-3*g2)/4; sh = 132; ih2 = 57
+    g2 = 6; sw = (W-2*M-3*g2)/4; sh = 140; ih2 = 60
     for i, num in enumerate(range(4, 12)):
         s = BY_NUM[num]; row, cc = i//4, i%4
-        x0 = M+cc*(sw+g2); y0 = 366+row*(sh+8)
+        x0 = M+cc*(sw+g2); y0 = 391+row*(sh+8)
         col = REG[s[1]]['c']
         rc(d, (x0, y0, x0+sw, y0+sh), WHITE, outline='#BEB5A2', width=1)
         SMALL_ILLU[num](d, x0+1, y0+1, sw-2, ih2)
@@ -598,27 +601,27 @@ def build():
         mark('small%d' % num, (x0, y0, x0+sw, y0+sh))
 
     # ---- map + remaining stories
-    y0 = 660; mbox = (M, y0, 432, 930)
+    y0 = 700; mbox = (M, y0, 432, 928)
     rc(d, (M, y0-17, 432, y0-1), INK)
     tx(d, M+6, y0-15, 'WHERE IT HAPPENED', F(10.5, True), WHITE)
     tx(d, 426, y0-15, '1–35 number the stories; dots and lines mark 7 regions.', F(7.6), WHITE, anchor='ra')
     draw_map(d, mbox)
-    tx(d, M+4, 920, 'Numbers are placed around a dot so they never overlap.', F(7.8), MUTED)
+    tx(d, M+4, 918, 'Numbers are placed around a dot so they never overlap.', F(7.8), MUTED)
 
     lx0, lx1 = 440, W-M
     rc(d, (lx0, y0-17, lx1, y0-1), INK)
     tx(d, lx0+6, y0-15, 'ALSO ON FRIDAY 20 NOVEMBER 2026  —  24 MORE STORIES', F(10.2, True), WHITE)
-    rc(d, (lx0, y0, lx1, 930), PANEL, outline='#BEB5A2', width=1)
+    rc(d, (lx0, y0, lx1, 928), PANEL, outline='#BEB5A2', width=1)
     items = [s for s in STORIES if s[0] >= 12]
     half = (len(items)+1)//2; colw = (lx1-lx0-14)/2
     for j, s in enumerate(items):
         cc, rw = j//half, j % half
-        cx = lx0+7+cc*colw; cy = y0+5+rw*21.0
+        cx = lx0+7+cc*colw; cy = y0+5+rw*17.4
         col = REG[s[1]]['c']
-        ci(d, cx+5, cy+4, 5.8, fill=col)
-        tc(d, cx+5, cy+6, str(s[0]), F(7.2, True), WHITE)
-        tlines(d, cx+14, cy, tw(d, s[4], F(8.6), colw-19)[:1], F(8.6), INK, lineh=10.0)
-    mark('list', (lx0, y0, lx1, 930))
+        ci(d, cx+6, cy+5, 6.5, fill=col, outline=WHITE, width=0.8)
+        tx(d, cx+6, cy+5, str(s[0]), F(7.6, True), WHITE, anchor='mm')
+        tlines(d, cx+16, cy, tw(d, s[4], F(8.6), colw-21)[:1], F(8.6), INK, lineh=10.0)
+    mark('list', (lx0, y0, lx1, 928))
 
     # ---- compact date check, pulled down close to the foot
     rc(d, (M, 940, W-M, 984), '#FBF3E4', outline=RED, width=1.3)
@@ -632,10 +635,10 @@ def build():
     mark('datecheck', (M, 940, W-M, 984))
 
     # ---- sources hugging the bottom edge with a tight, even margin
-    ln(d, [(M, 994), (W-M, 994)], '#C9BFA9', 0.8)
-    tc(d, W/2, 1000, 'Sources named beside each story · Original drawings, not photographs · 20 November 2026',
+    ln(d, [(M, 996), (W-M, 996)], '#C9BFA9', 0.8)
+    tc(d, W/2, 1002, 'Sources named beside each story · Original drawings, not photographs · 20 November 2026',
        F(8.8), MUTED)
-    mark('footer', (M, 994, W-M, 1020))
+    mark('footer', (M, 996, W-M, 1020))
 
     im = im.resize((W, H), Image.LANCZOS)
     os.makedirs(OUT_DIR, exist_ok=True)
