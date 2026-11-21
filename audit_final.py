@@ -26,7 +26,7 @@ check(build.REG['AMERICAS']['c'] == '#7748A8', 'Americas = purple')
 check(build.REG['OCEANIA']['c'] == '#118A8E', 'Oceania = teal')
 
 print('=== 3. MAP PLACEMENT ===')
-x0, y0, x1, y1 = 16, 700, 432, 928
+x0, y0, x1, y1 = 16, 731, 432, 940
 LAT_T, LAT_B = 83, -58
 mw, mh = x1-x0, y1-y0
 def pr(lon, lat):

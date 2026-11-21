@@ -100,15 +100,15 @@ def mark(name, b):
 STORIES = [
  (1,'EUROPE','KYIV, UKRAINE','WAR · OVERNIGHT',
   'Russian missiles hit three Kyiv bridges',
-  'A barrage of about 110 missiles and 400 drones damaged three Dnipro bridges and cut power and water. At least 3 were killed in Kyiv; 9 across Ukraine (Kyiv Independent).',
+  'About 110 missiles and 400 drones damaged three Dnipro bridges and cut power and water. At least 3 were killed in Kyiv; 9 across Ukraine (Kyiv Independent).',
   'Reuters / Kyiv Independent',30.52,50.45,'NIGHT → 03:00 EET · 20 NOV'),
  (2,'ASIA','GOPALPUR, ODISHA','CYCLONE · 08:00 IST',
   'Cyclone Akvan comes ashore in eastern India',
-  'Akvan crossed the coast near Gopalpur between 07:30 and 08:30 IST with 70-80 km/h winds, gusting 90. Over 300,000 were moved to shelters; no deaths reported.',
+  'Akvan crossed the coast near Gopalpur between 07:30 and 08:30 IST with 70-80 km/h winds, gusting 90. Over 300,000 were moved to shelters. No deaths reported.',
   'IMD / The Hindu / PTI',84.9,19.3,'07:30–08:30 IST · 20 NOV'),
  (3,'ASIA','TAIPEI · SEOUL · TOKYO','MARKETS · FRIDAY CLOSE',
   "AI sell-off sinks Asia's stock markets",
-  'Taiex fell 6.2%, Kospi 5.2% and Nikkei 5.1% as Anthropic\'s debut failed to revive AI trades. The region is heading for its worst week since 2020.',
+  'Taiex fell 6.2%, Kospi 5.2% and Nikkei 5.1% as AI trades slid. The region is heading for its worst week since 2020.',
   'Reuters / Al Jazeera',121.5,25.0,"FRI CLOSE · 20 NOV"),
  (4,'EUROPE','BRUSSELS','DIPLOMACY · 20 NOV',
   "UK and EU seal a 'reset' deal",
@@ -136,7 +136,7 @@ STORIES = [
   'Official data / Reuters',139.7,35.7,'TOKYO · 20 NOV'),
  (10,'AFRICA','TURKANA, KENYA','ENERGY · 20 NOV',
   'Kenya starts drilling its first oil well',
-  'A ceremony marked the first Turkana well; first crude is targeted for 1 December.',
+  'A ceremony marked the first Turkana well; first crude is due 1 December.',
   'allAfrica',35.0,3.0,'TURKANA · 20 NOV'),
  (11,'OCEANIA','WELLINGTON','CRICKET · 20 NOV',
   'Phillips hits 118 against India',
@@ -523,15 +523,15 @@ def build():
     M = 16
 
     # ---- masthead
-    ln(d, [(M, 11), (W-M, 11)], RED, 1.4)
-    tx(d, M, 13, 'THE WORLD IN ONE DAY', F(10.5, True), RED)
+    ln(d, [(M, 8), (W-M, 8)], RED, 1.4)
+    tx(d, M, 10, 'THE WORLD IN ONE DAY', F(10.5, True), RED)
     s = '35 STORIES  ·  7 REGIONS  ·  EVERY ONE DATED FRIDAY 20 NOVEMBER 2026'
-    tx(d, W-M, 13, s, F(9.4), MUTED, anchor='ra')
-    tc(d, W/2, 26, 'Friday 20 November 2026', F(45, True, serif=True), INK)
-    tc(d, W/2, 74, "Missiles hit Kyiv's bridges  ·  Cyclone Akvan strikes India  ·  An AI sell-off sinks Asia's markets  ·  UK and EU seal a deal",
+    tx(d, W-M, 10, s, F(9.4), MUTED, anchor='ra')
+    tc(d, W/2, 19, 'Friday 20 November 2026', F(45, True, serif=True), INK)
+    tc(d, W/2, 70, "Missiles hit Kyiv's bridges  ·  Cyclone Akvan strikes India  ·  An AI sell-off sinks Asia's markets  ·  UK and EU seal a deal",
        F(12.4), MUTED)
-    ln(d, [(M, 90), (W-M, 90)], RED, 1.6)
-    mark('headline', (M, 18, W-M, 89))
+    ln(d, [(M, 86), (W-M, 86)], RED, 1.6)
+    mark('headline', (M, 8, W-M, 85))
 
     # ---- six key numbers
     stats = [('3', 'KYIV BRIDGES HIT BY MISSILES'),
@@ -543,29 +543,29 @@ def build():
     bw = (W-2*M)/6
     for i, (big, lab) in enumerate(stats):
         x0 = M+i*bw
-        if i: ln(d, [(x0, 96), (x0, 128)], '#C9BFA9', 0.8)
-        tx(d, x0+5, 97, big, F(16.5, True, serif=True), RED)
-        tlines(d, x0+5, 117, tw(d, lab, F(7.6), bw-10)[:2], F(7.6), INK, lineh=8.8)
-        mark('stat%d' % i, (x0, 94, x0+bw, 130))
-    ln(d, [(M, 131), (W-M, 131)], '#C9BFA9', 0.8)
+        if i: ln(d, [(x0, 92), (x0, 124)], '#C9BFA9', 0.8)
+        tx(d, x0+5, 93, big, F(16.5, True, serif=True), RED)
+        tlines(d, x0+5, 113, tw(d, lab, F(7.6), bw-10)[:2], F(7.6), INK, lineh=8.8)
+        mark('stat%d' % i, (x0, 90, x0+bw, 126))
+    ln(d, [(M, 127), (W-M, 127)], '#C9BFA9', 0.8)
 
     # ---- seven-region key
     total = sum(COUNTS.values()); bx = M
     for r in ORDER:
         seg = (W-2*M)*COUNTS[r]/total
-        rc(d, (bx, 135, bx+seg, 153), REG[r]['c'])
+        rc(d, (bx, 131, bx+seg, 149), REG[r]['c'])
         lab = '%s %d' % (REG[r]['s'], COUNTS[r])
         fs = 8.4
         while fs > 5.4 and d.textlength(lab, font=F(fs, True)) > (seg-5)*S:
             fs -= 0.4
-        tc(d, bx+seg/2, 140, lab, F(fs, True), WHITE)
+        tc(d, bx+seg/2, 136, lab, F(fs, True), WHITE)
         bx += seg
-    mark('regionbar', (M, 135, W-M, 153))
+    mark('regionbar', (M, 131, W-M, 149))
 
     # ---- three main cards
     gap = 8; cw = (W-2*M-2*gap)/3
     for i, num in enumerate([1, 2, 3]):
-        s = BY_NUM[num]; x0 = M+i*(cw+gap); y0 = 157; ch = 230; ih = 100
+        s = BY_NUM[num]; x0 = M+i*(cw+gap); y0 = 153; ch = 230; ih = 105
         col = REG[s[1]]['c']
         rc(d, (x0, y0, x0+cw, y0+ch), WHITE, outline='#BEB5A2', width=1)
         MAIN_ILLU[num](d, x0+1, y0+1, cw-2, ih)
@@ -578,14 +578,14 @@ def build():
         yy += 2
         bl = tw(d, s[5], F(10.6), cw-13)[:4]
         tlines(d, x0+7, yy, bl, F(10.6), MUTED, lineh=11.8)
-        tx(d, x0+7, y0+ch-12, s[6], F(8.0, True), col)
+        tx(d, x0+7, y0+ch-13, s[6], F(8.0, True), col)
         mark('main%d' % num, (x0, y0, x0+cw, y0+ch))
 
     # ---- eight small cards, enlarged so each holds a real illustration
-    g2 = 6; sw = (W-2*M-3*g2)/4; sh = 140; ih2 = 60
+    g2 = 6; sw = (W-2*M-3*g2)/4; sh = 150; ih2 = 66
     for i, num in enumerate(range(4, 12)):
         s = BY_NUM[num]; row, cc = i//4, i%4
-        x0 = M+cc*(sw+g2); y0 = 391+row*(sh+8)
+        x0 = M+cc*(sw+g2); y0 = 393+row*(sh+10)
         col = REG[s[1]]['c']
         rc(d, (x0, y0, x0+sw, y0+sh), WHITE, outline='#BEB5A2', width=1)
         SMALL_ILLU[num](d, x0+1, y0+1, sw-2, ih2)
@@ -601,44 +601,44 @@ def build():
         mark('small%d' % num, (x0, y0, x0+sw, y0+sh))
 
     # ---- map + remaining stories
-    y0 = 700; mbox = (M, y0, 432, 928)
+    y0 = 731; mbox = (M, y0, 432, 940)
     rc(d, (M, y0-17, 432, y0-1), INK)
     tx(d, M+6, y0-15, 'WHERE IT HAPPENED', F(10.5, True), WHITE)
     tx(d, 426, y0-15, '1–35 number the stories; dots and lines mark 7 regions.', F(7.6), WHITE, anchor='ra')
     draw_map(d, mbox)
-    tx(d, M+4, 918, 'Numbers are placed around a dot so they never overlap.', F(7.8), MUTED)
+    tx(d, M+4, 930, 'Numbers are placed around a dot so they never overlap.', F(7.8), MUTED)
 
     lx0, lx1 = 440, W-M
     rc(d, (lx0, y0-17, lx1, y0-1), INK)
     tx(d, lx0+6, y0-15, 'ALSO ON FRIDAY 20 NOVEMBER 2026  —  24 MORE STORIES', F(10.2, True), WHITE)
-    rc(d, (lx0, y0, lx1, 928), PANEL, outline='#BEB5A2', width=1)
+    rc(d, (lx0, y0, lx1, 940), PANEL, outline='#BEB5A2', width=1)
     items = [s for s in STORIES if s[0] >= 12]
     half = (len(items)+1)//2; colw = (lx1-lx0-14)/2
     for j, s in enumerate(items):
         cc, rw = j//half, j % half
-        cx = lx0+7+cc*colw; cy = y0+5+rw*17.4
+        cx = lx0+7+cc*colw; cy = y0+5+rw*16.0
         col = REG[s[1]]['c']
         ci(d, cx+6, cy+5, 6.5, fill=col, outline=WHITE, width=0.8)
         tx(d, cx+6, cy+5, str(s[0]), F(7.6, True), WHITE, anchor='mm')
         tlines(d, cx+16, cy, tw(d, s[4], F(8.6), colw-21)[:1], F(8.6), INK, lineh=10.0)
-    mark('list', (lx0, y0, lx1, 928))
+    mark('list', (lx0, y0, lx1, 940))
 
-    # ---- compact date check, pulled down close to the foot
-    rc(d, (M, 940, W-M, 984), '#FBF3E4', outline=RED, width=1.3)
-    rc(d, (M, 940, M+124, 955), RED)
-    tx(d, M+5, 942, 'DATE CHECK  ✓', F(9.6, True), WHITE)
-    tx(d, M+8, 959, 'Every story happened, or was first reported, on Friday 20 November 2026 in at least one time zone — the day this image sums up.',
+    # ---- compact date check, pulled down together with the source
+    rc(d, (M, 950, W-M, 990), '#FBF3E4', outline=RED, width=1.3)
+    rc(d, (M, 950, M+124, 965), RED)
+    tx(d, M+5, 952, 'DATE CHECK  ✓', F(9.6, True), WHITE)
+    tx(d, M+8, 966, 'Every story happened, or was first reported, on Friday 20 November 2026 in at least one time zone — the day this image sums up.',
        F(9.2), INK)
     dc = ("Left out as earlier news: the Trump–Xi Shenzhen summit and Anthropic's IPO pricing (19 Nov); the ICJ Myanmar ruling, "
           "BepiColombo's launch (2018) and Bhumibol's death (2016). Claims are attributed; no forecast is shown as fact.")
-    tlines(d, M+8, 972, tw(d, dc, F(8.6), W-2*M-16)[:2], F(8.6), MUTED, lineh=10.2)
-    mark('datecheck', (M, 940, W-M, 984))
+    tlines(d, M+8, 979, tw(d, dc, F(8.6), W-2*M-16)[:2], F(8.6), MUTED, lineh=10.2)
+    mark('datecheck', (M, 950, W-M, 990))
 
     # ---- sources hugging the bottom edge with a tight, even margin
-    ln(d, [(M, 996), (W-M, 996)], '#C9BFA9', 0.8)
-    tc(d, W/2, 1002, 'Sources named beside each story · Original drawings, not photographs · 20 November 2026',
+    ln(d, [(M, 998), (W-M, 998)], '#C9BFA9', 0.8)
+    tc(d, W/2, 1004, 'Sources named beside each story · Original drawings, not photographs · 20 November 2026',
        F(8.8), MUTED)
-    mark('footer', (M, 996, W-M, 1020))
+    mark('footer', (M, 998, W-M, 1016))
 
     im = im.resize((W, H), Image.LANCZOS)
     os.makedirs(OUT_DIR, exist_ok=True)
