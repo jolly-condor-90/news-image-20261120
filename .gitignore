@@ -1,0 +1,4 @@
+﻿__pycache__/
+_verify_out/
+_verify_build/
+*.pyc
