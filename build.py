@@ -579,7 +579,7 @@ def build():
         mark('main%d' % num, (x0, y0, x0+cw, y0+ch))
 
     # ---- eight small cards, enlarged so each holds a real illustration
-    g2 = 6; sw = (W-2*M-3*g2)/4; sh = 132; ih2 = 60
+    g2 = 6; sw = (W-2*M-3*g2)/4; sh = 132; ih2 = 57
     for i, num in enumerate(range(4, 12)):
         s = BY_NUM[num]; row, cc = i//4, i%4
         x0 = M+cc*(sw+g2); y0 = 366+row*(sh+8)
@@ -591,51 +591,51 @@ def build():
         tx(d, x0+6, yy+2, '%d · %s' % (num, s[2]), F(8.4, True), WHITE)
         yy += 18
         hl = tw(d, s[4], F(13.2, True, serif=True), sw-11)[:3]
-        yy = tlines(d, x0+6, yy, hl, F(13.2, True, serif=True), INK, lineh=14.8)
+        yy = tlines(d, x0+6, yy, hl, F(13.2, True, serif=True), INK, lineh=14.2)
         yy += 2
         bl = tw(d, s[5], F(9.2), sw-11)[:2]
-        tlines(d, x0+6, yy, bl, F(9.2), MUTED, lineh=11.0)
+        tlines(d, x0+6, yy, bl, F(9.2), MUTED, lineh=10.6)
         mark('small%d' % num, (x0, y0, x0+sw, y0+sh))
 
     # ---- map + remaining stories
-    y0 = 660; mbox = (M, y0, 432, 886)
+    y0 = 660; mbox = (M, y0, 432, 930)
     rc(d, (M, y0-17, 432, y0-1), INK)
     tx(d, M+6, y0-15, 'WHERE IT HAPPENED', F(10.5, True), WHITE)
     tx(d, 426, y0-15, '1–35 number the stories; dots and lines mark 7 regions.', F(7.6), WHITE, anchor='ra')
     draw_map(d, mbox)
-    tx(d, M+4, 876, 'Numbers are placed around a dot so they never overlap.', F(7.8), MUTED)
+    tx(d, M+4, 920, 'Numbers are placed around a dot so they never overlap.', F(7.8), MUTED)
 
     lx0, lx1 = 440, W-M
     rc(d, (lx0, y0-17, lx1, y0-1), INK)
     tx(d, lx0+6, y0-15, 'ALSO ON FRIDAY 20 NOVEMBER 2026  —  24 MORE STORIES', F(10.2, True), WHITE)
-    rc(d, (lx0, y0, lx1, 886), PANEL, outline='#BEB5A2', width=1)
+    rc(d, (lx0, y0, lx1, 930), PANEL, outline='#BEB5A2', width=1)
     items = [s for s in STORIES if s[0] >= 12]
     half = (len(items)+1)//2; colw = (lx1-lx0-14)/2
     for j, s in enumerate(items):
         cc, rw = j//half, j % half
-        cx = lx0+7+cc*colw; cy = y0+5+rw*18.0
+        cx = lx0+7+cc*colw; cy = y0+5+rw*21.0
         col = REG[s[1]]['c']
         ci(d, cx+5, cy+4, 5.8, fill=col)
         tc(d, cx+5, cy+6, str(s[0]), F(7.2, True), WHITE)
         tlines(d, cx+14, cy, tw(d, s[4], F(8.6), colw-19)[:1], F(8.6), INK, lineh=10.0)
-    mark('list', (lx0, y0, lx1, 886))
+    mark('list', (lx0, y0, lx1, 930))
 
-    # ---- compact date check, pulled down toward the foot
-    rc(d, (M, 900, W-M, 944), '#FBF3E4', outline=RED, width=1.3)
-    rc(d, (M, 900, M+124, 915), RED)
-    tx(d, M+5, 902, 'DATE CHECK  ✓', F(9.6, True), WHITE)
-    tx(d, M+8, 919, 'Every story happened, or was first reported, on Friday 20 November 2026 in at least one time zone — the day this image sums up.',
+    # ---- compact date check, pulled down close to the foot
+    rc(d, (M, 940, W-M, 984), '#FBF3E4', outline=RED, width=1.3)
+    rc(d, (M, 940, M+124, 955), RED)
+    tx(d, M+5, 942, 'DATE CHECK  ✓', F(9.6, True), WHITE)
+    tx(d, M+8, 959, 'Every story happened, or was first reported, on Friday 20 November 2026 in at least one time zone — the day this image sums up.',
        F(9.2), INK)
     dc = ("Left out as earlier news: the Trump–Xi Shenzhen summit and Anthropic's IPO pricing (19 Nov); the ICJ Myanmar ruling, "
           "BepiColombo's launch (2018) and Bhumibol's death (2016). Claims are attributed; no forecast is shown as fact.")
-    tlines(d, M+8, 932, tw(d, dc, F(8.6), W-2*M-16)[:2], F(8.6), MUTED, lineh=10.2)
-    mark('datecheck', (M, 900, W-M, 944))
+    tlines(d, M+8, 972, tw(d, dc, F(8.6), W-2*M-16)[:2], F(8.6), MUTED, lineh=10.2)
+    mark('datecheck', (M, 940, W-M, 984))
 
-    # ---- sources hugging the bottom edge with an even margin
-    ln(d, [(M, 954), (W-M, 954)], '#C9BFA9', 0.8)
-    tc(d, W/2, 958, 'Sources named beside each story · Original drawings, not photographs · 20 November 2026',
+    # ---- sources hugging the bottom edge with a tight, even margin
+    ln(d, [(M, 994), (W-M, 994)], '#C9BFA9', 0.8)
+    tc(d, W/2, 1000, 'Sources named beside each story · Original drawings, not photographs · 20 November 2026',
        F(8.8), MUTED)
-    mark('footer', (M, 954, W-M, 1000))
+    mark('footer', (M, 994, W-M, 1020))
 
     im = im.resize((W, H), Image.LANCZOS)
     os.makedirs(OUT_DIR, exist_ok=True)
